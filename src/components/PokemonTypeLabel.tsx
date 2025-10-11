@@ -1,13 +1,13 @@
 // src/components/pokemonTypeLabel.tsx
 // ポケモンのタイプのラベル
-import { pokemonTypesMap } from '../pokemonTypesMap';
+import { pokemonTypesMap, PokemonTypeInfo } from '../pokemonTypesMap';
 
 type PokemonTypeLabelProps = {
   type: string;
 };
 
 const PokemonTypeLabel: React.FC<PokemonTypeLabelProps> = ({ type }) => {
-  const typeInfo = pokemonTypesMap.find((t) => t.jaType === type);
+  const typeInfo = pokemonTypesMap.find((t: PokemonTypeInfo) => t.jaType === type);
   return (
     <span 
       style={{

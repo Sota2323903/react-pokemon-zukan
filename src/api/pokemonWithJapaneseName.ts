@@ -1,7 +1,8 @@
 // src/api/pokemonWithJapaneseName.ts
 import { INITIAL_POKEMON_LIST_LIMIT } from '../config';
-import { fetchPokemonList, PokemonListResult } from './pokemon';
-import { Pokemon } from './pokemon.type';
+import { fetchPokemonList } from './pokemon';
+import type { PokemonListResult } from './pokemon';
+import type { Pokemon } from './pokemon.type';
 import { fetchPokemonJapaneseName } from './pokemonSpecies';
 
 // ポケモンの日本語名を含む拡張情報を表す型
@@ -10,6 +11,8 @@ export type PokemonWithJapaneseName = {
   url: string;           // ポケモンの詳細情報を取得するためのURL
   japaneseName: string;  // ポケモンの日本語名
   number: string;        // ポケモンの図鑑番号
+  types?: any[];         // タイプ情報（オプション）
+  abilities?: any[];     // 特性情報（オプション）
 };
 
 // 日本語名を含むポケモンリストの結果を表す型

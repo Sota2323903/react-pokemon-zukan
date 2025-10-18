@@ -56,8 +56,9 @@ export const fetchPokemonDetail = async (id: number): Promise<PokemonDetail> => 
     // 日本語名を取得
     const japaneseStatData = await fetch(`https://pokeapi.co/api/v2/stat/${stat.stat.name}`);
     const japaneseStatDataJson = await japaneseStatData.json();
+    const japaneseStatName = japaneseStatDataJson.names.find((name: Name) => name.language.name === "ja");
     return {
-      name: japaneseStatDataJson.names.find((name: Name) => name.language.name === "ja-Hrkt").name,
+      name: japaneseStatName ? japaneseStatName.name : stat.stat.name,
       value: stat.base_stat,
     };
   }));
